@@ -1,8 +1,8 @@
-package chatty.controller;
+package chatty.endpoints;
 
-import chatty.model.Message;
-import chatty.model.MessageDecoder;
-import chatty.model.MessageEncoder;
+import chatty.entities.Message;
+import chatty.coders.MessageDecoder;
+import chatty.coders.MessageEncoder;
 
 import java.io.IOException;
 import java.util.*;

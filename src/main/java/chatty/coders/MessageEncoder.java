@@ -1,8 +1,8 @@
-package chatty.model;
+package chatty.coders;
 
+import chatty.entities.Message;
 import com.google.gson.Gson;
 
-import javax.websocket.EncodeException;
 import javax.websocket.Encoder;
 import javax.websocket.EndpointConfig;
 import java.util.logging.Logger;

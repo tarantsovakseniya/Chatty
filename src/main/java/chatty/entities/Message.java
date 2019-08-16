@@ -1,4 +1,4 @@
-package chatty.model;
+package chatty.entities;
 
 public class Message {
 
