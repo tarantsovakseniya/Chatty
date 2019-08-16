@@ -1,0 +1,4 @@
+chatty\controller\ChatEndpoint.class
+chatty\model\Message.class
+chatty\model\MessageDecoder.class
+chatty\model\MessageEncoder.class

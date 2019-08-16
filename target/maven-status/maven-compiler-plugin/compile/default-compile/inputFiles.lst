@@ -1,0 +1,4 @@
+src\main\java\chatty\model\Message.java
+src\main\java\chatty\model\MessageEncoder.java
+src\main\java\chatty\controller\ChatEndpoint.java
+src\main\java\chatty\model\MessageDecoder.java
