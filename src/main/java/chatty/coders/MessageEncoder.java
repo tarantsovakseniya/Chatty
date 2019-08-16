@@ -8,15 +8,16 @@ import javax.websocket.EndpointConfig;
 import java.util.logging.Logger;
 
 public class MessageEncoder implements Encoder.Text<Message> {
+
     private final Logger log = Logger.getLogger(getClass().getName());
+
+    private Gson gson = new Gson();
 
     @Override
     public String encode(Message message)  {
         log.info("converting message obj to json format");
 
-        Gson gson = new Gson();
-        String json = gson.toJson(message);
-        return json;
+        return gson.toJson(message);
     }
 
     @Override

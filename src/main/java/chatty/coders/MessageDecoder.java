@@ -8,15 +8,16 @@ import javax.websocket.EndpointConfig;
 import java.util.logging.Logger;
 
 public class MessageDecoder implements Decoder.Text<Message> {
+
     private final Logger log = Logger.getLogger(getClass().getName());
+
+    private Gson gson = new Gson();
 
     @Override
     public Message decode(String s)  {
         log.info("incoming message : " + s);
 
-        Gson gson = new Gson();
-        Message message = gson.fromJson(s, Message.class);
-        return message;
+        return gson.fromJson(s, Message.class);
     }
 
     @Override
