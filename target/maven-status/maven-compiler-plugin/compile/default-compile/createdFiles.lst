@@ -1,4 +1,5 @@
-chatty\controller\ChatEndpoint.class
-chatty\model\Message.class
-chatty\model\MessageDecoder.class
-chatty\model\MessageEncoder.class
+chatty\coders\MessageEncoder.class
+chatty\coders\MessageDecoder.class
+chatty\entities\Message.class
+chatty\endpoints\ChatEndpoint.class
+chatty\servlets\MainServlet.class
