@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-public class Message {
+public class Message{
 
     private String from;
     private String to;

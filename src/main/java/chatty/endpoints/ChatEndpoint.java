@@ -50,11 +50,12 @@ public class ChatEndpoint {
     public void onClose(Session session, @PathParam("username") String username) throws IOException, EncodeException {
         log.info(session.getId() + " disconnected!");
         chatEndpoints.remove(this);
-        users.remove(session);
 
         Message message = new Message();
         message.setFrom(username);
         message.setContent("disconnected!");
+
+        users.remove(session);
 
         broadcast(message);
     }
@@ -70,7 +71,7 @@ public class ChatEndpoint {
         for (ChatEndpoint endpoint : chatEndpoints) {
             synchronized(endpoint) {
                 endpoint.session.getBasicRemote().sendObject(message);
-                endpoint.session.getBasicRemote().sendText(currentUsers);
+//                endpoint.session.getBasicRemote().sendText(currentUsers);
             }
         }
     }
@@ -78,18 +79,21 @@ public class ChatEndpoint {
     private static void sendMessageToOneUser(Message message) throws IOException, EncodeException {
         for (ChatEndpoint endpoint : chatEndpoints) {
             synchronized(endpoint) {
-                if (endpoint.session.getId().equals(getSessionId(message.getTo()))) {
+                if (endpoint.session.equals(getSession(message.getTo()))) {
+                    endpoint.session.getBasicRemote().sendObject(message);
+                }
+                else if (message.getTo().isEmpty() && !message.getFrom().equals(users.get(endpoint.session))){
                     endpoint.session.getBasicRemote().sendObject(message);
                 }
             }
         }
     }
 
-    private static String getSessionId(String to) {
+    private static Session getSession(String to) {
         if (users.containsValue(to)) {
-            for (Session sessionId: users.keySet()) {
-                if (users.get(sessionId).equals(to)) {
-                    return users.get(sessionId);
+            for (Session session: users.keySet()) {
+                if (users.get(session).equals(to)) {
+                    return session;
                 }
             }
         }
