@@ -1,5 +1,0 @@
-chatty\coders\MessageEncoder.class
-chatty\coders\MessageDecoder.class
-chatty\entities\Message.class
-chatty\endpoints\ChatEndpoint.class
-chatty\servlets\MainServlet.class

@@ -1,5 +1,0 @@
-src\main\java\chatty\coders\MessageDecoder.java
-src\main\java\chatty\endpoints\ChatEndpoint.java
-src\main\java\chatty\coders\MessageEncoder.java
-src\main\java\chatty\servlets\MainServlet.java
-src\main\java\chatty\entities\Message.java
