@@ -49,12 +49,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card border-success w-20 mt-3">
+                    <div class="card border-success mt-3">
                         <div class="card-header text-success">
-                        <p class="text text-center">users on-line</p>
+                        <p class="text-center">users on-line</p>
                         </div>
-                        <div class="card-body"
-                        <textarea readonly="true" rows="10"  id="allUsers"></textarea>
+                        <div class="card-body text-success"
+                            <textarea class="form-control" readonly="true" id="allUsers"></textarea>
                         </div>
                     </div>
                 </div>
@@ -79,12 +79,13 @@ var username;
 
       ws.onmessage = function(event) {
          var log = document.getElementById("log");
-         var allUsers = document.getElementById("allUsers");
+
              console.log(event.data);
              var message = JSON.parse(event.data);
              log.innerHTML += message.from + " : " + message.content + "\n";
-allUsers.append(message.userList);
 
+         const allUsers = message.userList;
+         document.getElementById("allUsers").innerHTML = allUsers.value;
      };
 
   }

@@ -74,7 +74,6 @@ public class ChatEndpoint {
         for (ChatEndpoint endpoint : chatEndpoints) {
             synchronized(endpoint) {
                 endpoint.session.getBasicRemote().sendObject(message);
-//                endpoint.session.getBasicRemote().sendText(currentUsers);
             }
         }
     }
