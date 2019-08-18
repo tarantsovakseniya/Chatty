@@ -4,12 +4,15 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.StringJoiner;
+
 @Data
 public class Message{
 
     private String from;
     private String to;
     private String content;
+    private StringJoiner userList = new StringJoiner("/n");
 
     public String getFrom() {
         return from;
@@ -33,5 +36,13 @@ public class Message{
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public StringJoiner getUserList() {
+        return userList;
+    }
+
+    public void setUserList(StringJoiner userList) {
+        this.userList = userList;
     }
 }

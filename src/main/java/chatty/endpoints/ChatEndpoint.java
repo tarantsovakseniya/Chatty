@@ -35,6 +35,9 @@ public class ChatEndpoint {
         Message message = new Message();
         message.setFrom(username);
         message.setContent("connected!");
+
+        users.forEach((s, name)->message.getUserList().add(name));
+
         broadcast(message);
     }
 
